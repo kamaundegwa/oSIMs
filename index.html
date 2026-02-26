@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O-Level Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>O-Level Student Management System</h1>
+    </header>
+
+    <div class="top-grid">
+        <section class="card">
+
+            <h2>Register New Student</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <input type="text" id="regID" placeholder="Student ID (Unique)" required>
+                    <input type="text" id="regName" placeholder="Full Name" required>
+                    <input type="number" id="regAge" placeholder="Age" required>
+                    <select id="regGender" required>
+                        <option value="">Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+
+                    <select id="regForm" required>
+                        <option value="">Initial Form</option>
+                        <option value="1">Form 1</option>
+                        <option value="2">Form 2</option>
+                        <option value="3">Form 3</option>
+                        <option value="4">Form 4</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-save">Save Student Record</button>
+            </form>
+        </section>
+
+        <section class="card">
+
+            <h2>Search & Filter Records</h2>
+            <p>Search by Name or Student ID:</p>
+            <input type="text" id="searchBox" placeholder="Type to search..." onkeyup="filterStudents()">
+        </section>
+    </div>
+
+    <section class="table-container">
+        <h2>Registered student List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Full Name</th>
+                    <th>Current Form</th>
+                    <th>Avg Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentList">
+                </tbody>
+        </table>
+    </section>
+</div>
+
+<div id="modalOverlay" onclick="closeModal()"></div>
+<div id="modal">
+    <h3 id="modalTitle">Manage Academic Results</h3>
+    <hr>
+    <label>Recording results for <b>Form Level:</b></label>
+    <select id="perfLevel" style="width: 100%; margin-bottom: 15px;">
+        <option value="1">Form 1</option>
+        <option value="2">Form 2</option>
+        <option value="3">Form 3</option>
+        <option value="4">Form 4</option>
+    </select>
+
+
+    <div class="subj-grid">
+        <div><label>Math</label><input type="number" id="mX" value="0" min="0" max="100"></div>
+        <div><label>English</label><input type="number" id="eX" value="0" min="0" max="100"></div>
+        <div><label>Science</label><input type="number" id="sX" value="0" min="0" max="100"></div>
+        <div><label>Social Studies</label><input type="number" id="ssX" value="0" min="0" max="100"></div>
+    </div>
+
+    <div class="modal-footer">
+        <button onclick="savePerformance()" class="btn btn-save" style="margin:0">Update Performance</button>
+
+        <button onclick="closeModal()" class="btn" style="background:#ccc; flex:1">Cancel</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
